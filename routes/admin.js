@@ -1,20 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-let posts = [];
+const postController = require("../controllers/post");
 
-router.get("/create-post", (req, res, next) => {
-  res.render("addpost", { title: "Create New Post" });
-});
-router.post("/", (req, res, next) => {
-  const { title, description, imgUrl } = req.body;
-  posts.push({
-    title,
-    description,
-    imgUrl,
-  });
-  console.log(req.body);
-  res.redirect("/");
-});
+router.get("/create-post", postController.renderCreatePage);
+router.post("/", postController.createPost);
 
-module.exports = { adminRouter: router, posts };
+module.exports = router;

@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 //import path
 const postRouter = require("./routes/post");
-const { adminRouter } = require("./routes/admin");
+const adminRouter = require("./routes/admin");
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());

@@ -1,7 +1,7 @@
 <%- include('./includes/header.ejs') %>
     <section class="addPostSection">
         <nav class="navbar-create">
-            <h4>Create Post</h4>
+            <h4>Edit Post</h4>
             <a href="/" class="back btn">Back</a>
         </nav>
         <hr>
@@ -9,17 +9,17 @@
             <form action="/admin" method="post" class="post-form">
                 <div>
                     <label for="title">Enter Title</label>
-                    <input type="text" name="title" id="title" required>
+                    <input type="text" name="title" id="title" required value="<%= post.title %>">
                 </div>
                 <div>
                     <label for="description">Enter Description</label>
-                    <input type="text" name="description" id="description" required>
+                    <input type="text" name="description" id="description" required value="<%= post.description %>">
                 </div>
                 <div>
                     <label for="imgUrl">Enter Image URL</label>
-                    <input type="text" name="imgUrl" id="imgUrl" required>
+                    <input type="text" name="imgUrl" id="imgUrl" required value="<%= post.imgUrl %>">
                 </div>
-                <button class="add btn">Add Post</button>
+                <button class="add btn">Update Post</button>
             </form>
         </section>
     </section>
