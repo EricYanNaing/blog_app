@@ -1,0 +1,26 @@
+<%- include('./includes/header.ejs') %>
+    <section class="addPostSection">
+        <nav class="navbar-create">
+            <h4>Create Post</h4>
+            <a href="/" class="back btn">Back</a>
+        </nav>
+        <hr>
+        <section class="form-section">
+            <form action="/admin" method="post" class="post-form">
+                <div>
+                    <label for="title">Enter Title</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="description">Enter Description</label>
+                    <input type="text" name="description" id="description" required>
+                </div>
+                <div>
+                    <label for="imgUrl">Enter Image URL</label>
+                    <input type="text" name="imgUrl" id="imgUrl" required>
+                </div>
+                <a href="" class="add btn">Add Post</a>
+            </form>
+        </section>
+    </section>
+<%- include('./includes/footer.ejs') %>
