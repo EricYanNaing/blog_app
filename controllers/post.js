@@ -1,15 +1,14 @@
-const posts = [];
+const Post = require("../models/post");
 
 exports.createPost = (req, res, next) => {
   const { title, description, imgUrl } = req.body;
-  console.log(title, description);
-  posts.push({
-    id: Math.random(),
-    title,
-    description,
-    imgUrl,
-  });
-  res.redirect("/");
+  const post = new Post(title, description, imgUrl);
+  post
+    .setPost()
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.renderCreatePage = (req, res, next) => {
@@ -17,13 +16,20 @@ exports.renderCreatePage = (req, res, next) => {
 };
 
 exports.renderHomePage = (req, res, next) => {
-  console.log(posts);
-  res.render("homepage", { title: "Home Page", postsArr: posts });
+  Post.getAllPost()
+    .then(([rows]) => {
+      console.log(rows);
+      res.render("homepage", { title: "Home Page", postsArr: rows });
+    })
+    .catch((err) => console.log(err));
 };
 
 exports.renderDetailPage = (req, res, next) => {
   const postId = Number(req.params.postId);
-  const post = posts.find((post) => post.id === postId);
-  console.log(post);
-  res.render("detail", { title: "Edit Post", post });
+  Post.getPost(postId)
+    .then(([row]) => {
+      console.log(row);
+      res.render("detail", { title: row[0].title, post: row[0] });
+    })
+    .catch((err) => err);
 };

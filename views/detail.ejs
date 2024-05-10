@@ -1,26 +1,15 @@
 <%- include('./includes/header.ejs') %>
     <section class="addPostSection">
         <nav class="navbar-create">
-            <h4>Edit Post</h4>
+            <h4>Post Detail</h4>
             <a href="/" class="back btn">Back</a>
         </nav>
         <hr>
-        <section class="form-section">
-            <form action="/admin" method="post" class="post-form">
-                <div>
-                    <label for="title">Enter Title</label>
-                    <input type="text" name="title" id="title" required value="<%= post.title %>">
-                </div>
-                <div>
-                    <label for="description">Enter Description</label>
-                    <input type="text" name="description" id="description" required value="<%= post.description %>">
-                </div>
-                <div>
-                    <label for="imgUrl">Enter Image URL</label>
-                    <input type="text" name="imgUrl" id="imgUrl" required value="<%= post.imgUrl %>">
-                </div>
-                <button class="add btn">Update Post</button>
-            </form>
+    <section class="detail">
+        <h3>Title - <%= post.title %> </h3>
+        <img src="<%= post.imgUrl %>" alt="<%= post.title %>">
+        <p><%= post.description %></p>
+        <a href="" class="add btn">Edit Post</a>
         </section>
     </section>
 <%- include('./includes/footer.ejs') %>
