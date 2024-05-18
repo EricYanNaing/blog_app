@@ -5,11 +5,17 @@
             <a href="/" class="back btn">Back</a>
         </nav>
         <hr>
+        <div class="edit-section">
+            <a href="/admin/edit-post/<%=post.id%>" class="add btn">Edit Post</a>
+            <form action="/admin/delete" method="post">
+                <input type="text" hidden value="<%=post.id%>" name="postId">
+                <button class="btn">Delete</button>
+            </form>
+        </div>
     <section class="detail">
         <h3>Title - <%= post.title %> </h3>
         <img src="<%= post.imgUrl %>" alt="<%= post.title %>">
         <p><%= post.description %></p>
-        <a href="" class="add btn">Edit Post</a>
         </section>
     </section>
 <%- include('./includes/footer.ejs') %>

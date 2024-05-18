@@ -3,6 +3,9 @@
 html {
   font-family: "Roboto", sans-serif;
 }
+button {
+  cursor: pointer;
+}
 .navbar {
   display: flex;
   justify-content: space-evenly;
@@ -87,5 +90,9 @@ a {
 .navbar-create {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.edit-section {
+  display: flex;
   align-items: center;
 }

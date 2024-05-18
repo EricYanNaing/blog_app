@@ -1,0 +1,27 @@
+<%- include('./includes/header.ejs') %>
+    <section class="addPostSection">
+        <nav class="navbar-create">
+            <h4>Edit Post</h4>
+            <a href="/" class="back btn">Back</a>
+        </nav>
+        <hr>
+        <section class="form-section">
+            <form action="/admin/edit-post" method="post" class="post-form">
+                <input type="text" hidden value="<%=post.id%>" name="postId">
+                <div>
+                    <label for="title">Edit Title</label>
+                    <input type="text" name="title" id="title" required value="<%= post.title %>">
+                </div>
+                <div>
+                    <label for="description">Edit Description</label>
+                    <input type="text" name="description" id="description" required value="<%= post.description %>">
+                </div>
+                <div>
+                    <label for="imgUrl">Edit Image URL</label>
+                    <input type="text" name="imgUrl" id="imgUrl" required value="<%= post.imgUrl %>">
+                </div>
+                <button class="add btn">Edit Post</button>
+            </form>
+        </section>
+    </section>
+<%- include('./includes/footer.ejs') %>
